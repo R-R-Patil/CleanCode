@@ -1,0 +1,84 @@
+public class PrinterDriver
+{
+    private IInput input;
+    private IPrinter printer;
+
+    public PrinterDriver(IInput input, IPrinter printer){
+       this.file = file;
+        this.printer = printer;
+    }
+
+
+    public void Print(){
+        buffer page = Iinput.nextPage();
+        while(!Iinput.IsEndOfFile(page)){
+            printer.Print(page);
+            page = Iinput.readPage();
+        }
+    }
+}
+
+
+interface Iinput
+{
+    bool IsEndOfFile();
+    buffer nextPage();
+}
+
+class File implements Iinput
+{
+    public bool IsEndOfFile()
+    {
+        // check if end of file
+    }
+
+    public buffer nextPage()
+    {
+        // read next page
+    }
+}
+
+public class scanner implements Iinput
+{
+    public bool IsEndOfFile()
+    {
+        // check if end of file
+    }
+
+    public buffer nextPage()
+    {
+        // read next page
+    }
+}
+
+interface IPrinter
+{
+    void Print(buffer page);
+}
+
+public class Printer implements IPrinter
+{
+    @Override
+    public void Print(buffer page)
+    {
+        // Implement the printing logic here
+    }
+}
+
+public class LaserPrinter implements IPrinter
+{
+    @Override
+    public void Print(buffer page)
+    {
+        // Implement the laser printing logic here
+    }
+}
+
+public class InkjetPrinter implements IPrinter
+{
+    @Override
+    public void Print(buffer page)
+    {
+        // Implement the inkjet printing logic here
+    }
+}
